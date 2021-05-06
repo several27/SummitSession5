@@ -251,6 +251,7 @@
       },
       "Report" : {
         "component" : "Target",
+        "group" : null,
         "properties" : {
           "interim" : false,
           "cache" : false,
@@ -259,8 +260,8 @@
         },
         "metadata" : {
           "label" : "Report",
-          "x" : 913,
-          "y" : 201
+          "x" : 914,
+          "y" : 203
         },
         "ports" : {
           "inputs" : [ "in" ],
@@ -338,7 +339,7 @@
     "groups" : [ ],
     "locked" : false,
     "metainfo" : {
-      "lastUpdated" : 1620311381114,
+      "lastUpdated" : 1620311392000,
       "id" : "SummitWorkflow",
       "memory" : 1,
       "imported" : true,
