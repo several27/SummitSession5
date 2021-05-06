@@ -106,52 +106,73 @@
       },
       "With_FullName" : {
         "component" : "Reformat",
+        "group" : null,
         "properties" : {
           "interim" : true,
           "cache" : false,
           "functions" : [ {
+            "addReplaceColumn" : "customer_id",
+            "functionName" : null,
             "inputArgs" : [ {
               "type" : "sql",
               "expr" : "customer_id"
             } ],
-            "addReplaceColumn" : "customer_id"
+            "comment" : null,
+            "enabled" : true
           }, {
+            "addReplaceColumn" : "first_name",
+            "functionName" : null,
             "inputArgs" : [ {
               "type" : "sql",
               "expr" : "first_name"
             } ],
-            "addReplaceColumn" : "first_name"
+            "comment" : null,
+            "enabled" : true
           }, {
+            "addReplaceColumn" : "last_name",
+            "functionName" : null,
             "inputArgs" : [ {
               "type" : "sql",
               "expr" : "last_name"
             } ],
-            "addReplaceColumn" : "last_name"
+            "comment" : null,
+            "enabled" : true
           }, {
+            "addReplaceColumn" : "order_id",
+            "functionName" : null,
             "inputArgs" : [ {
               "type" : "sql",
               "expr" : "order_id"
             } ],
-            "addReplaceColumn" : "order_id"
+            "comment" : null,
+            "enabled" : true
           }, {
+            "addReplaceColumn" : "order_status",
+            "functionName" : null,
             "inputArgs" : [ {
               "type" : "sql",
               "expr" : "order_status"
             } ],
-            "addReplaceColumn" : "order_status"
+            "comment" : null,
+            "enabled" : true
           }, {
+            "addReplaceColumn" : "amount",
+            "functionName" : null,
             "inputArgs" : [ {
               "type" : "sql",
               "expr" : "amount"
             } ],
-            "addReplaceColumn" : "amount"
+            "comment" : null,
+            "enabled" : true
           }, {
             "addReplaceColumn" : "full_name",
             "functionName" : "column_expression",
             "inputArgs" : [ {
               "expr" : "CONCAT(first_name, last_name)",
               "type" : "sql"
-            } ]
+            } ],
+            "comment" : null,
+            "enabled" : true
           } ]
         },
         "metadata" : {
@@ -167,6 +188,7 @@
       },
       "Sum_Amounts" : {
         "component" : "Aggregate",
+        "group" : null,
         "properties" : {
           "interim" : false,
           "cache" : false,
@@ -226,6 +248,25 @@
           "outputs" : [ "out" ]
         },
         "lineage" : ""
+      },
+      "Report" : {
+        "component" : "Target",
+        "properties" : {
+          "interim" : false,
+          "cache" : false,
+          "id" : "1809",
+          "version" : 0
+        },
+        "metadata" : {
+          "label" : "Report",
+          "x" : 913,
+          "y" : 201
+        },
+        "ports" : {
+          "inputs" : [ "in" ],
+          "outputs" : [ ]
+        },
+        "lineage" : ""
       }
     },
     "connections" : [ {
@@ -280,11 +321,24 @@
         "route" : "e_B1hZpdZdO"
       },
       "lineage" : ""
+    }, {
+      "src" : {
+        "process" : "Sum_Amounts",
+        "port" : "out"
+      },
+      "tgt" : {
+        "process" : "Report",
+        "port" : "in"
+      },
+      "metadata" : {
+        "route" : "e_SJfE6_bud"
+      },
+      "lineage" : ""
     } ],
     "groups" : [ ],
     "locked" : false,
     "metainfo" : {
-      "lastUpdated" : 1620311325400,
+      "lastUpdated" : 1620311381114,
       "id" : "SummitWorkflow",
       "memory" : 1,
       "imported" : true,
